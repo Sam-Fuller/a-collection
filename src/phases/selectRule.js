@@ -47,7 +47,7 @@ const onInitialisation = () => {
         gameState.players = players.filter((player) => player._id === gameState.curator._id)
     }
     
-    console.debug();
+    console.debug(gameState.curator);
     
     renderViews();
 };

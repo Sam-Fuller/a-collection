@@ -1,0 +1,29 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-undef */
+
+const options = resources.points;
+
+const theCollection = () => {
+    const name = gameState.curator.name;
+    const collectionName = name.toLowerCase().endsWith("s")? name + "' Collection": name + "'s Collection"
+    
+    return ({
+        type: "TITLE",
+        data: {
+            title: collectionName,
+            description: gameState.selectedGuesses.length? undefined: `No new items have been added to ${collectionName}.`
+        },
+        child: {
+            type: `CARD_LIST`,
+            data: gameState.selectedGuesses.map((guess) => {
+                return {
+                    text: guess,
+                };
+            }),
+            settings: {
+                maxSelectable: 0,
+            },
+        },
+    })
+
+}

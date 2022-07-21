@@ -46,9 +46,9 @@ const onInitialisation = () => {
         gameState.curator = players[Math.floor(Math.random()*players.length)];
         gameState.players = players.filter((player) => player._id === gameState.curator._id)
     }
-
-    gameState.items = [];
-
+    
+    console.debug();
+    
     renderViews();
 };
 

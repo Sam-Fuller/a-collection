@@ -34,9 +34,7 @@ const playerView = (player) => ({
 })
 
 const renderViews = () => {
-    playerViews = gameState.players.map((player) => {
-        playerView(player)
-    })
+    playerViews = gameState.players.map((player) => playerView(player))
 
     playerViews.push(curatorView());
 }

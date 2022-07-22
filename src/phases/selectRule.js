@@ -43,7 +43,7 @@ const onInitialisation = () => {
     if (gameState.curator === undefined) {
         console.log("here")
         gameState.curator = players[Math.floor(Math.random()*players.length)];
-        gameState.players = players.filter((player) => player._id === gameState.curator._id)
+        gameState.players = players.filter((player) => player._id !== gameState.curator._id)
     }
         
     renderViews();

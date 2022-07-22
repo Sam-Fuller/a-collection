@@ -5,7 +5,7 @@ const options = resources.points;
 
 const theCollection = () => {
     const name = gameState.curator.name;
-    const collectionName = name.toLowerCase().endsWith("s")? name + "' Collection": name + "'s Collection"
+    const collectionName = name + "'s Collection"
     
     return ({
         type: "TITLE",

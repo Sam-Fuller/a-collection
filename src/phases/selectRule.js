@@ -27,7 +27,7 @@ const playerView = (player) => ({
         {
             type: `CARD`,
             data: {
-                text: gameState.curator + " is picking a theme for the collection."
+                text: gameState.curator.name + " is picking a theme for the collection."
             }
         },
     ]

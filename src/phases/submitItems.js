@@ -58,7 +58,7 @@ const playerWaitingView = (player) => ({
 
 const renderViews = () => {
     const playersThatHaveNotGuessed = gameState.players.filter(player => {
-        return gameState.playersThatHaveGuessed(guessed => guessed._id === player._id)
+        return !gameState.playersThatHaveGuessed(guessed => guessed._id === player._id)
     })
 
     playerViews = playersThatHaveNotGuessed.map((player) => playerGuessView(player))

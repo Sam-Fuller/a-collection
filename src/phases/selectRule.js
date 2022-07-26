@@ -50,7 +50,7 @@ const onInitialisation = () => {
 
 const onSubmit = () => {
     if (context.playerView.player._id === gameState.curator._id && context.component === 1) {
-        gameState.rule = context.playerView.view[0].data
+        gameState.rule = context.playerView.view[0].child.data
 
         phaseName = `submitItems`;
     }

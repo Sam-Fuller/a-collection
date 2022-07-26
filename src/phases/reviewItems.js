@@ -77,7 +77,7 @@ const renderViews = () => {
 
     playerViews = playersThatHaveNotGuessed.map((player) => playerGuessView(player))
 
-    ruleGuesses.forEach((guess) => {
+    gameState.ruleGuesses.forEach((guess) => {
         playerViews.push(playerWaitingView(guess.player))
     })
 

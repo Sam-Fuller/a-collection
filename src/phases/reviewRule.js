@@ -62,9 +62,11 @@ const onInitialisation = () => {
 const onSubmit = () => {
     if (context.playerView.player._id === gameState.curator._id) {
         if (context.component === 1) {
-            gameState.winner = context.playerView.view[1].child.data.find(
+            const winningAnswer = context.playerView.view[1].child.data.find(
                 (card) => card.selected,
-            ).player;
+            ).text;
+
+            gameState.winner = gameState.ruleGuesses.find(guess => guess.text === winningAnswer).player
 
             gameState = "announceWinner"
         } else {

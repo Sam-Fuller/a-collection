@@ -83,7 +83,7 @@ const onSubmit = () => {
     if (context.playerView.player._id === gameState.curator._id) {
         gameState.selectedGuesses = context.playerView.view[1].child.data.filter(
             (card) => card.selected,
-        );
+        ).map(item => item.text);
 
     } else {
         gameState.guesses.push(context.playerView.view[1].child.data)

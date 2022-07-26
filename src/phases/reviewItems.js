@@ -97,7 +97,7 @@ const onSubmit = () => {
         if (context.component === 1) {
             gameState.selectedGuesses = context.playerView.view[1].child.data.filter(
                 (card) => card.selected,
-            );
+            ).map(item => item.text);
         } else {
             gameState.isCuratorReady = true;
         }

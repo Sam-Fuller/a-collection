@@ -62,6 +62,7 @@ const renderViews = () => {
     })
 
     playerViews = playersThatHaveNotGuessed.map((player) => playerGuessView(player))
+    console.log({playersThatHaveGuessed: gameState.playersThatHaveGuessed, playersThatHaveNotGuessed})
 
     playersThatHaveGuessed.forEach((player) => {
         playerViews.push(playerWaitingView(player))

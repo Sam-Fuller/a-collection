@@ -6,7 +6,7 @@ const curatorView = () => {
         theCollection(true),
     ]
 
-    if (gameState.curatorSubmitted) {
+    if (!gameState.curatorSubmitted) {
         view.push({
                 type: "TITLE",
                 data: {

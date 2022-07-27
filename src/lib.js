@@ -5,7 +5,8 @@ const options = resources.points;
 
 const theCollection = () => {
     const name = gameState.curator.name;
-    const collectionName = name + "'s Collection"
+    const collectionName = name + "'s Collection" 
+        + (gameState.curator._id === context.playerView.player._id)? (" of " + gameState.rule): ""
     
     return ({
         type: "TITLE",

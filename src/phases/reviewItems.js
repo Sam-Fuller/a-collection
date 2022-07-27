@@ -86,7 +86,6 @@ const renderViews = () => {
 
 const onInitialisation = () => {
     gameState.ruleGuesses = [];
-
     gameState.isCuratorReady = false;
 
     renderViews();
@@ -109,7 +108,6 @@ const onSubmit = () => {
         })
     }
 
-    
     if (gameState.players.length === gameState.ruleGuesses.length && gameState.isCuratorReady) {
         phaseName = `reviewRule`;
     }

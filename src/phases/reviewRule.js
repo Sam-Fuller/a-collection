@@ -56,6 +56,8 @@ const renderViews = () => {
 }
 
 const onInitialisation = () => {
+    gameState.isCuratorReady = false;
+
     renderViews();
 };
 

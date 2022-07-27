@@ -16,9 +16,8 @@ const curatorView = () => {
             child: {
                 type: `CARD_LIST`,
                 data: gameState.ruleGuesses.map((guess) => {
-
                     return {
-                        text: guess,
+                        text: guess.guess,
                     };
                 }),
                 settings: {

@@ -109,7 +109,7 @@ const onSubmit = () => {
     }
 
     if (gameState.players.length === gameState.ruleGuesses.length && gameState.isCuratorReady) {
-        gameState.collection = gameState.collection.contact(gameState.selectedGuesses)
+        gameState.collection = gameState.collection.concat(gameState.selectedGuesses)
         console.log("collection", gameState.collection)
         console.log("selectedGuesses", gameState.selectedGuesses)
 

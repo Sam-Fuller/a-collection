@@ -11,7 +11,7 @@ const curatorView = () => ({
             },
             child: {
                 type: `TEXT_BOX`,
-                data: resources.prompts[Math.floor(Math.random()*resources.prompts.length)]
+                data: Math.randomElement(resources.prompts)
             },
         },
         {
@@ -41,7 +41,7 @@ const renderViews = () => {
 
 const onInitialisation = () => {
     if (gameState.curator === undefined) {
-        gameState.curator = players[Math.floor(Math.random()*players.length)];
+        gameState.curator = Math.randomElement(players)
         gameState.players = players.filter((player) => player._id !== gameState.curator._id)
     }
         

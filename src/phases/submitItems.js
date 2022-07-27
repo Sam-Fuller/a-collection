@@ -89,6 +89,7 @@ const onSubmit = () => {
         gameState.guesses.push(context.playerView.view[1].child.data)
         gameState.playersThatHaveGuessed.push(context.playerView.player)
 
+        console.log(gameState.players.length, gamestate.playersThatHaveGuessed.length)
         if (gameState.players.length === gamestate.playersThatHaveGuessed.length) {
             phaseName = `reviewItems`;
         }

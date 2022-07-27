@@ -80,8 +80,6 @@ const onInitialisation = () => {
 };
 
 const onSubmit = () => {
-    console.log("onsubmit", context.playerView.player._id, gameState.curator._id)
-
     if (context.playerView.player._id === gameState.curator._id) {
         gameState.selectedGuesses = context.playerView.view[1].child.data.filter(
             (card) => card.selected,
@@ -89,12 +87,8 @@ const onSubmit = () => {
 
     } else {
         gameState.guesses.push(context.playerView.view[1].child.data)
-        console.log("pushed to guesses", guesses)
         gameState.playersThatHaveGuessed.push(context.playerView.player)
-        console.log("pushed to guesses", playersThatHaveGuessed)
 
-
-        console.log("before phase change", gameState.players.length, gameState.playersThatHaveGuessed.length)
         if (gameState.players.length === gameState.playersThatHaveGuessed.length) {
             phaseName = `reviewItems`;
         }

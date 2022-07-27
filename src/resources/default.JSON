@@ -1,10 +1,13 @@
 {
    "prompts": [
-      "edible items",
+      "food",
       "animals",
-      "musical items",
+      "musical instruments",
       "things that are taller than me",
       "household items",
-      "stationary"
+      "stationary",
+      "organs",
+      "clothing",
+      "cities"
    ]
 }

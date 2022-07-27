@@ -74,7 +74,6 @@ const renderViews = () => {
         return !gameState.ruleGuesses.find(guess => guess.player._id === player._id)
     })
 
-    console.log(playersThatHaveNotGuessed, gameState.ruleGuesses)
     playerViews = playersThatHaveNotGuessed.map((player) => playerGuessView(player))
 
     gameState.ruleGuesses.forEach((guess) => {
@@ -110,9 +109,6 @@ const onSubmit = () => {
 
     if (gameState.players.length === gameState.ruleGuesses.length && gameState.isCuratorReady) {
         gameState.collection = gameState.collection.concat(gameState.selectedGuesses)
-        console.log("collection", gameState.collection)
-        console.log("selectedGuesses", gameState.selectedGuesses)
-
         gameState.selectedGuesses = [];
         
         phaseName = `reviewRule`;

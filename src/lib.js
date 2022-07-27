@@ -5,7 +5,7 @@ const options = resources.points;
 
 const theCollection = (isCurator) => {
     const name = gameState.curator.name;
-    const collectionName = name + "'s Collection" + (isCurator? " of " + gameState.rule: "")
+    const collectionName = name + "'s collection" + (isCurator? " of " + gameState.rule: "")
     
     return ({
         type: "TITLE",

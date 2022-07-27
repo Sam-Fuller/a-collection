@@ -94,8 +94,8 @@ const onSubmit = () => {
         console.log("pushed to guesses", playersThatHaveGuessed)
 
 
-        console.log("before phase change", gameState.players.length, gamestate.playersThatHaveGuessed.length)
-        if (gameState.players.length === gamestate.playersThatHaveGuessed.length) {
+        console.log("before phase change", gameState.players.length, gameState.playersThatHaveGuessed.length)
+        if (gameState.players.length === gameState.playersThatHaveGuessed.length) {
             phaseName = `reviewItems`;
         }
     }

@@ -13,7 +13,7 @@ const winnerView = (player) => ({
             },
             child: {
                 type: `CARD`,
-                data: gameState.rule
+                data: {text: gameState.rule}
             },
         },
         {
@@ -32,7 +32,7 @@ const onInitialisation = () => {
 };
 
 const onSubmit = () => {
-    phaseName = "selectRule"
+    if (context.component === 2) phaseName = "selectRule"
 };
 
 const onTimeout = () => {};

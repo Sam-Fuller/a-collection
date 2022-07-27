@@ -65,9 +65,9 @@ const onSubmit = () => {
 
             gameState.winner = gameState.ruleGuesses.find(guess => guess.text === winningAnswer).player
 
-            gameState = "announceWinner"
+            phaseName = "announceWinner"
         } else {
-            gameState = "submitItems"
+            phaseName = "submitItems"
         }
     }
 };

@@ -72,7 +72,6 @@ const renderViews = () => {
 }
 
 const onInitialisation = () => {
-    gameState.guesses = [];
     gameState.selectedGuesses = [];
     gameState.playersThatHaveGuessed = [];
 

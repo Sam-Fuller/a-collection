@@ -40,11 +40,10 @@ const renderViews = () => {
 }
 
 const onInitialisation = () => {
-    if (gameState.curator === undefined) {
-        gameState.curator = Math.randomElement(players)
-        gameState.players = players.filter((player) => player._id !== gameState.curator._id)
-    }
-        
+    gameState.guesses = [];
+    gameState.curator = Math.randomElement(players)
+    gameState.players = players.filter((player) => player._id !== gameState.curator._id)
+    
     renderViews();
 };
 

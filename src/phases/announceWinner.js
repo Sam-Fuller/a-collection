@@ -31,7 +31,7 @@ const onInitialisation = () => {
 };
 
 const onSubmit = () => {
-    gameState = "selectRule"
+    phaseName = "selectRule"
 };
 
 const onTimeout = () => {};

@@ -90,9 +90,6 @@ const onSubmit = () => {
         gameState.playersThatHaveGuessed.push(context.playerView.player)
 
         if (gameState.players.length === gameState.playersThatHaveGuessed.length) {
-            gameState.collection = gameState.selectedGuesses
-            gameState.selectedGuesses = [];
-
             phaseName = `reviewItems`;
         }
     }

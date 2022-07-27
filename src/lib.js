@@ -11,7 +11,7 @@ const theCollection = (isCurator) => {
         type: "TITLE",
         data: {
             title: collectionName,
-            description: (gameState.collection + gameState.selectedGuesses.length)? undefined: `No new items have been added to ${collectionName}.`
+            description: (gameState.collection.length + gameState.selectedGuesses.length)? undefined: `No new items have been added to ${collectionName}.`
         },
         child: {
             type: `CARD_LIST`,

@@ -15,22 +15,20 @@ const curatorView = () => {
             },
             child: {
                 type: `CARD_LIST`,
-                data: gameState.guesses.map((guess) => {
-                    const isSelected =  gameState.selectedGuesses.includes(guess);
+                data: gameState.ruleGuesses.map((guess) => {
 
                     return {
                         text: guess,
-                        selected: isSelected,
                     };
                 }),
                 settings: {
-                    maxSelectable: gameState.guesses.length,
+                    maxSelectable: 1,
                 },
             },
         })
         view.push({
             type: `SUBMIT_BUTTON`,
-            data: `Done`,
+            data: `No`,
         })
     }
     

@@ -11,15 +11,21 @@ const theCollection = (isCurator) => {
         type: "TITLE",
         data: {
             title: collectionName,
-            description: gameState.selectedGuesses.length? undefined: `No new items have been added to ${collectionName}.`
+            description: (gameState.collection + gameState.selectedGuesses.length)? undefined: `No new items have been added to ${collectionName}.`
         },
         child: {
             type: `CARD_LIST`,
-            data: gameState.selectedGuesses.map((guess) => {
+            data: gameState.collection.map((guess) => {
                 return {
                     text: guess,
                 };
-            }),
+            }).concat(
+                gameState.selectedGuesses.map((guess) => {
+                    return {
+                        text: guess,
+                    };
+                })
+            ),
             settings: {
                 maxSelectable: 0,
             },

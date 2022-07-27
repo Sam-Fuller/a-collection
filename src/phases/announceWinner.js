@@ -4,6 +4,7 @@
 const winnerView = (player) => ({
     player,
     view: [
+        theCollection(true),
         {
             type: "TITLE",
             data: {

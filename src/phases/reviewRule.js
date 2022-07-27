@@ -4,36 +4,34 @@
 const curatorView = () => {
 
     const view = [
-        theCollection(),
+        theCollection(true),
     ]
 
     if (!gameState.isCuratorReady) {
-        view.push(
-            {
-                type: "TITLE",
-                data: {
-                    description: "Are any of these your rule?",
-                },
-                child: {
-                    type: `CARD_LIST`,
-                    data: gameState.guesses.map((guess) => {
-                        const isSelected =  gameState.selectedGuesses.includes(guess);
-    
-                        return {
-                            text: guess,
-                            selected: isSelected,
-                        };
-                    }),
-                    settings: {
-                        maxSelectable: gameState.guesses.length,
-                    },
+        view.push({
+            type: "TITLE",
+            data: {
+                description: "Are any of these your rule?",
+            },
+            child: {
+                type: `CARD_LIST`,
+                data: gameState.guesses.map((guess) => {
+                    const isSelected =  gameState.selectedGuesses.includes(guess);
+
+                    return {
+                        text: guess,
+                        selected: isSelected,
+                    };
+                }),
+                settings: {
+                    maxSelectable: gameState.guesses.length,
                 },
             },
-            view.push({
-                type: `SUBMIT_BUTTON`,
-                data: `Done`,
-            })
-        )
+        })
+        view.push({
+            type: `SUBMIT_BUTTON`,
+            data: `Done`,
+        })
     }
     
     return ({

@@ -4,7 +4,7 @@
 const curatorView = () => ({
     player: gameState.curator,
     view: [
-        theCollection(),
+        theCollection(true),
         {
             type: "TITLE",
             data: {

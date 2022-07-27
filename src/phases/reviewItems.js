@@ -4,7 +4,7 @@
 const curatorView = () => {
 
     const view = [
-        theCollection(),
+        theCollection(true),
     ]
 
     if (!gameState.isCuratorReady) {

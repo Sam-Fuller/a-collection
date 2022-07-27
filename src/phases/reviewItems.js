@@ -109,7 +109,7 @@ const onSubmit = () => {
     }
 
     if (gameState.players.length === gameState.ruleGuesses.length && gameState.isCuratorReady) {
-        gameState.collection = gameState.selectedGuesses
+        gameState.collection.push(...gameState.selectedGuesses)
         gameState.selectedGuesses = [];
         
         phaseName = `reviewRule`;

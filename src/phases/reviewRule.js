@@ -11,6 +11,7 @@ const curatorView = () => {
         view.push({
             type: "TITLE",
             data: {
+                title: "Check Rule",
                 description: "Are any of these your rule?",
             },
             child: {
@@ -41,6 +42,21 @@ const playerWaitingView = (player) => ({
     player,
     view: [
         theCollection(),
+        {
+            type: "TITLE",
+            data: {
+                title: "Waiting for",
+            },
+            child: {
+                type: `CARD_LIST`,
+                data: [
+                    gameState.curator.name,
+                ],
+                settings: {
+                    maxSelectable: 1,
+                },
+            },
+        }
     ]
 })
 
@@ -63,7 +79,7 @@ const onSubmit = () => {
                 (card) => card.selected,
             ).text;
 
-            gameState.winner = gameState.ruleGuesses.find(guess => guess.guess === winningAnswer).player
+            gameState.winner = gameState.ruleGuesses.find(guess => guess.guess === winningAnswer)
 
             phaseName = "announceWinner"
         } else {

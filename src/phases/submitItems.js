@@ -10,6 +10,7 @@ const curatorView = () => {
         view.push({
                 type: "TITLE",
                 data: {
+                    title: "New Item",
                     description: "Add an item to your collection (leave empty to skip)"
                 },
                 child: {
@@ -22,10 +23,11 @@ const curatorView = () => {
             }
         )
 
-    } else {
+    } else if (gameState.guesses.length) {
         view.push({
             type: "TITLE",
             data: {
+                title: "Add Items",
                 description: "Choose all items that match your theme",
             },
             child: {
@@ -40,6 +42,22 @@ const curatorView = () => {
                 }),
                 settings: {
                     maxSelectable: gameState.guesses.length,
+                },
+            },
+        })
+    } else {
+        view.push({
+            type: "TITLE",
+            data: {
+                title: "Waiting for",
+            },
+            child: {
+                type: `CARD_LIST`,
+                data: gameState.players.filter(player => {
+                    return !gameState.playersThatHaveGuessed.find(guessed => guessed._id === player._id)
+                }),
+                settings: {
+                    maxSelectable: 1,
                 },
             },
         })
@@ -76,6 +94,21 @@ const playerWaitingView = (player) => ({
     player,
     view: [
         theCollection(),
+        view.push({
+            type: "TITLE",
+            data: {
+                title: "Waiting for",
+            },
+            child: {
+                type: `CARD_LIST`,
+                data: gameState.players.filter(player => {
+                    return !gameState.playersThatHaveGuessed.find(guessed => guessed._id === player._id)
+                }),
+                settings: {
+                    maxSelectable: 1,
+                },
+            },
+        })
     ]
 })
 
@@ -116,8 +149,10 @@ const onSubmit = () => {
             gameState.curatorSubmitted = true
         }
     } else {
-        gameState.guesses.push(context.playerView.view[1].child.data)
-        gameState.playersThatHaveGuessed.push(context.playerView.player)
+        if (context.playerView.view[1].child.data) {
+            gameState.guesses.push(context.playerView.view[1].child.data)
+            gameState.playersThatHaveGuessed.push(context.playerView.player)
+        }
 
         if (gameState.players.length === gameState.playersThatHaveGuessed.length) {
             phaseName = `reviewItems`;

@@ -11,6 +11,7 @@ const curatorView = () => {
         view.push({
             type: "TITLE",
             data: {
+                title: "Add Items",
                 description: "Choose all items that match your theme",
             },
             child: {
@@ -48,6 +49,7 @@ const playerGuessView = (player) => ({
         {
             type: "TITLE",
             data: {
+                title: "Guess Rule",
                 description: "Can you figure out the collection's theme?"
             },
             child: {
@@ -66,6 +68,21 @@ const playerWaitingView = (player) => ({
     player,
     view: [
         theCollection(),
+        view.push({
+            type: "TITLE",
+            data: {
+                title: "Waiting for",
+            },
+            child: {
+                type: `CARD_LIST`,
+                data: gameState.players.filter(player => {
+                    return !gameState.playersThatHaveGuessed.find(guessed => guessed._id === player._id)
+                }),
+                settings: {
+                    maxSelectable: 1,
+                },
+            },
+        })
     ]
 })
 
@@ -101,10 +118,12 @@ const onSubmit = () => {
         }
         
     } else {
-        gameState.ruleGuesses.push({
-            guess: context.playerView.view[1].child.data,
-            player: context.playerView.player
-        })
+        if (context.playerView.view[1].child.data) {
+            gameState.ruleGuesses.push({
+                guess: context.playerView.view[1].child.data,
+                player: context.playerView.player
+            })
+        }
     }
 
     if (gameState.players.length === gameState.ruleGuesses.length && gameState.isCuratorReady) {

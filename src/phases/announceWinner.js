@@ -8,12 +8,12 @@ const winnerView = (player) => ({
         {
             type: "TITLE",
             data: {
-                title: gameState.winner.name,
+                title: gameState.winner.player.name,
                 description: "successfully guessed the theme:"
             },
             child: {
                 type: `CARD`,
-                data: {text: gameState.rule}
+                data: {text: gameState.winner.guess}
             },
         },
         {
